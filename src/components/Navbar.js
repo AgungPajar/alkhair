@@ -35,7 +35,7 @@ export default function Navbar() {
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-1">
             {navLinks.map((link) => {
-              const isActive = pathname === link.href;
+              const isActive = link.href === "/" ? pathname === "/" : pathname?.startsWith(link.href);
               return (
                 <Link
                   key={link.name}
@@ -84,7 +84,7 @@ export default function Navbar() {
         <div className="md:hidden bg-white border-t border-gray-100 shadow-lg absolute w-full">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
             {navLinks.map((link) => {
-              const isActive = pathname === link.href;
+              const isActive = link.href === "/" ? pathname === "/" : pathname?.startsWith(link.href);
               return (
                 <Link
                   key={link.name}
